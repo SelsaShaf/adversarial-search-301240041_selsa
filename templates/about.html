@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Checkers AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="navbar-brand">
+            <span class="brand-icon">&#9671;</span>
+            <span class="brand-title">Checkers AI</span>
+        </div>
+        <nav class="navbar-menu">
+            <a href="/" class="nav-link">Game</a>
+            <a href="/about" class="nav-link active">About</a>
+        </nav>
+        <div class="navbar-actions">
+            <button id="themeToggle" class="btn-icon" title="Toggle Theme">
+                <span id="themeIcon">&#9790;</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="about-container">
+
+        <section class="about-hero">
+            <h1 class="about-title">Pencarian Adversarial</h1>
+            <p class="about-subtitle">Implementasi Minimax & Alpha-Beta Pruning pada permainan Checkers</p>
+        </section>
+
+        <section class="about-grid">
+
+            <div class="card">
+                <h3 class="card-title">Minimax Algorithm</h3>
+                <p class="card-text">
+                    Minimax adalah algoritma pencarian pada game tree untuk menentukan langkah optimal
+                    dalam permainan dua agen zero-sum. Pemain MAX berusaha memaksimalkan skor,
+                    sementara pemain MIN berusaha meminimalkan skor. Algoritma menelusuri seluruh
+                    game tree hingga kedalaman yang ditentukan, lalu memilih langkah dengan nilai tertinggi.
+                </p>
+                <div class="pseudocode">
+                    <pre>
+minimax(board, depth, isMax):
+  if depth == 0 or terminal:
+    return evaluate(board)
+  if isMax:
+    best = -infinity
+    for each move:
+      best = max(best, minimax(..., false))
+    return best
+  else:
+    best = +infinity
+    for each move:
+      best = min(best, minimax(..., true))
+    return best
+                    </pre>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Alpha-Beta Pruning</h3>
+                <p class="card-text">
+                    Alpha-Beta Pruning adalah optimasi Minimax yang memangkas cabang game tree
+                    yang tidak akan memengaruhi hasil akhir. Alpha menyimpan nilai terbaik untuk MAX,
+                    Beta menyimpan nilai terbaik untuk MIN. Jika Beta lebih kecil atau sama dengan Alpha,
+                    cabang tersebut dipangkas dan tidak dieksplorasi lebih lanjut.
+                </p>
+                <div class="pseudocode">
+                    <pre>
+alphabeta(board, depth, alpha, beta, isMax):
+  if depth == 0 or terminal:
+    return evaluate(board)
+  if isMax:
+    for each move:
+      alpha = max(alpha, alphabeta(...))
+      if beta <= alpha: break
+    return alpha
+  else:
+    for each move:
+      beta = min(beta, alphabeta(...))
+      if beta <= alpha: break
+    return beta
+                    </pre>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Cara Bermain</h3>
+                <ul class="about-list">
+                    <li>Piece merah dikendalikan oleh pemain (Human)</li>
+                    <li>Piece putih dikendalikan oleh AI</li>
+                    <li>Klik piece untuk memilih, klik kotak tujuan untuk bergerak</li>
+                    <li>Capture bersifat wajib jika tersedia</li>
+                    <li>Piece yang mencapai baris ujung lawan menjadi King</li>
+                    <li>King dapat bergerak maju dan mundur</li>
+                    <li>Menang jika semua piece lawan habis atau tidak bisa bergerak</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Tentang Project</h3>
+                <ul class="about-list">
+                    <li>Mata Kuliah: Kecerdasan Buatan</li>
+                    <li>Program Studi: Teknik Informatika</li>
+                    <li>Universitas: Universitas Bale Bandung</li>
+                    <li>Dosen: Mohammad Bayu Anggara, S.Kom., M.Kom.</li>
+                    <li>NIM: 301240041</li>
+                    <li>Nama: Selsa Shafana Alfiyani</li>
+                    <li>Kelas: 4B</li>
+                </ul>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>Adversarial Search - Kecerdasan Buatan</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/board.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ui.js') }}"></script>
+</body>
+</html>

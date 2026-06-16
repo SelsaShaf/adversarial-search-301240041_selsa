@@ -106,8 +106,8 @@ Optimasi dari Minimax yang memangkas cabang pencarian yang tidak akan memengaruh
 
 ## Demo
 
-- Live Demo: 
-- Video Demonstrasi: 
+- Live Demo: https://game-checkers-selsa.my.id/
+- Video Demonstrasi: https://youtu.be/Ee25-hlx5NI?si=D41EBAXJ1Tq2osIv
 
 ## Penulis
 

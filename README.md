@@ -40,7 +40,7 @@ Aplikasi ini mensimulasikan permainan Checkers 8x8 antara manusia dan AI (atau m
 ### Menjalankan secara lokal
 
 1. Clone repository ini
-git clone https://github.com/SelsaShaf/adversarial-search-301240041.git
+git clone https://github.com/SelsaShaf/adversarial-search-301240041_selsa.git
 
 cd adversarial-search-301240041
 
